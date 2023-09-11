@@ -165,7 +165,7 @@ mode "resize" {
  }
 
 bar {
-    mode hide
+    mode dock
     hidden_state hide
     modifier mod4
     status_command i3blocks -c ~/.config/i3/i3blocks.conf
