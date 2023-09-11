@@ -1,2 +1,0 @@
-# debian-dotfiles
-Debian Dotfiles
