@@ -2,6 +2,7 @@
 #arch commands
 alias reload='. ~/.zshrc'
 alias update='sudo apt-get update -y'
+alias upgrade='sudo apt-get upgrade -y'
 alias i='sudo apt-get install -y'
 alias vim='nvim'
 alias tree-overview='tree -CDL 2'
