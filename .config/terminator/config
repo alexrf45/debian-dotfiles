@@ -28,7 +28,7 @@
     title_use_system_font = False
     title_font = Monospace Bold 10
   [[CTF]]
-    background_color = "#1e1f29"
+    background_color = "#282a36"
     background_darkness = 0.94
     background_type = transparent
     cursor_shape = ibeam
