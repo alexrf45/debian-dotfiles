@@ -63,7 +63,7 @@ kali-stop $1 () {
  docker container stop $1
 }
 
-kali-destory $1 () {
+kali-destroy $1 () {
  docker container rm $1
 }
 
