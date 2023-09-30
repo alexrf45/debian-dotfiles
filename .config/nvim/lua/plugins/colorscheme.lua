@@ -1,12 +1,25 @@
+-- return {
+--   "maxmx03/dracula.nvim",
+--   lazy = false,
+--   priority = 1000,
+--   config = function()
+--     local dracula = require("dracula")
+--
+--     dracula.setup()
+--
+--     vim.cmd.colorscheme("dracula")
+--   end,
+-- }
+
 return {
-  "maxmx03/dracula.nvim",
-  lazy = false,
-  priority = 1000,
-  config = function()
-    local dracula = require("dracula")
+  -- add gruvbox
+  { "ellisonleao/gruvbox.nvim" },
 
-    dracula.setup()
-
-    vim.cmd.colorscheme("dracula")
-  end,
+  -- Configure LazyVim to load gruvbox
+  {
+    "LazyVim/LazyVim",
+    opts = {
+      colorscheme = "gruvbox",
+    },
+  },
 }
