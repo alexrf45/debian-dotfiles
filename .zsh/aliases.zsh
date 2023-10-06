@@ -21,7 +21,7 @@ alias t='tmux new -f ~/.tmux.conf -s $1'
 alias t-ctf='tmuxp load ~/.config/tmuxp/ctf.yaml'
 alias t-dev='tmuxp load ~/.config/tmuxp/dev.yaml'
 alias t-project='tmuxp load ~/.config/tmuxp/three-tier.yaml'
-
+alias t-home='tmux new-session -s "dev-home" -d -c "$HOME/projects/home-lab/"'
 #networking
 alias public='curl wtfismyip.com/text'
 

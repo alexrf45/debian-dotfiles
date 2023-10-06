@@ -43,10 +43,9 @@ eval $(ssh-agent) &> /dev/null
 ssh-add ~/.ssh/f0nzy &> /dev/null
 ssh-add ~/.ssh/jump &> /dev/null
 ssh-add ~/.ssh/homelab &> /dev/null
-
+ssh-add ~/.ssh/home &> /dev/null
 #miniplug zsh
 source "$HOME/.zsh/plugins/miniplug.zsh"
-
 
 # Define a plugin
 miniplug plugin 'zsh-users/zsh-syntax-highlighting'
@@ -57,6 +56,7 @@ miniplug theme 'dracula/zsh'
 # Source plugins
 miniplug load
 
+#source "$HOME/.zsh/git-prompt.zsh/examples/pure.zsh"
 #source "$HOME/.zsh/kali.zsh-theme"
 
 #bash-completion

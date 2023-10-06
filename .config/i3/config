@@ -175,7 +175,7 @@ bar {
         font pango:FiraCode Nerd Font Mono 8
         colors {
             statusline #EEEEEE
-            background #1d2021
+            background #000000
             focused_workspace #002A3E88 #282A3E88 #FFFFFF
             statusline #E6FFF5
         } 
@@ -194,7 +194,7 @@ exec_always --no-startup-id pulseaudio --start
 
 exec_always --no-startup-id vmware-user
 
-exec_always --no-startup-id feh --no-fehbg --bg-fill $HOME/.config/pictures/pixel.jpg
+exec_always --no-startup-id feh --no-fehbg --bg-fill $HOME/.config/pictures/nice.jpg
 
 exec_always --no-startup-id picom -b --config ~/.config/picom.conf
 
