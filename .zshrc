@@ -2,30 +2,60 @@
 # Author: Sean Fontaine
 # Email: alex_r0land@pm.me
 
-#history config
-HISTFILE=~/.history
-HISTSIZE=5000
-SAVEHIST=5000
-setopt autocd extendedglob
+#ssh-agent w/ quiet (optional, set custom key if desired)
+zstyle :omz:plugins:ssh-agent agent-forwarding yes
+zstyle :omz:plugins:ssh-agent quiet yes
+zstyle :omz:plugins:ssh-agent identities ~/.ssh/home ~/.ssh/jump ~/.ssh/homelab ~/.ssh/f0nzy
 
-#turn off beep
-unsetopt beep
-#vi key bindings
+
+export ZSH="$HOME/.oh-my-zsh"
+
+# Path to your oh-my-zsh installation.
 bindkey -v
 
 #source aliases and env
 source "$HOME/.zprofile"
-#source "$HOME/.zsh/aliases.zsh"
 
+#zsh auto update
+zstyle ':omz:update' mode auto      # update automatically without asking
+
+#theme
+ZSH_THEME="agnoster"
+
+HISTFILE=~/.history
+HISTSIZE=5000
+SAVEHIST=5000
+HIST_STAMPS="mm/dd/yyyy"
+
+plugins=(
+doctl
+docker
+fzf
+gcloud
+git
+history
+sublime
+ssh-agent
+zsh-autosuggestions
+zsh-syntax-highlighting
+)
+
+source $ZSH/oh-my-zsh.sh
+# User configuration
+
+if [[ -n $SSH_CONNECTION ]]; then
+   export EDITOR='nvim'
+else
+   export EDITOR='mvim'
+fi
+
+#load aliases
 for file in $HOME/.zsh/*.zsh; do
     source "$file"
 done
 
-fpath=(/tmp/zsh-completions/src $fpath)
-
+#kali container function
 source "$HOME/.zsh/kali.sh"
-
-#displays saying in every new prompt
 
 echo "
    __  ___                  
@@ -35,33 +65,3 @@ echo "
  |_|  \___/|_| |_/___|\__, |
                       |___/ 
 "
-
-
-#persistant ssh agent
-eval $(ssh-agent) &> /dev/null
-
-ssh-add ~/.ssh/f0nzy &> /dev/null
-ssh-add ~/.ssh/jump &> /dev/null
-ssh-add ~/.ssh/homelab &> /dev/null
-ssh-add ~/.ssh/home &> /dev/null
-#miniplug zsh
-source "$HOME/.zsh/plugins/miniplug.zsh"
-
-# Define a plugin
-miniplug plugin 'zsh-users/zsh-syntax-highlighting'
-miniplug plugin 'zsh-users/zsh-autosuggestions'
-miniplug plugin 'zsh-users/zsh-completions'
-miniplug theme 'dracula/zsh'
-
-# Source plugins
-miniplug load
-
-#source "$HOME/.zsh/git-prompt.zsh/examples/pure.zsh"
-#source "$HOME/.zsh/kali.zsh-theme"
-
-#bash-completion
-autoload bashcompinit && bashcompinit
-autoload -Uz compinit && compinit
-
-complete -C '/usr/local/bin/aws_completer' aws
-
