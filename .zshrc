@@ -8,7 +8,7 @@ zstyle :omz:plugins:ssh-agent quiet yes
 zstyle :omz:plugins:ssh-agent identities ~/.ssh/home ~/.ssh/jump ~/.ssh/homelab ~/.ssh/f0nzy
 
 
-export ZSH="$HOME/.oh-my-zsh"
+export ZSH="$HOME/.config/.oh-my-zsh"
 
 # Path to your oh-my-zsh installation.
 bindkey -v
@@ -20,7 +20,7 @@ source "$HOME/.zprofile"
 zstyle ':omz:update' mode auto      # update automatically without asking
 
 #theme
-ZSH_THEME="agnoster"
+ZSH_THEME="agnoster-custom"
 
 HISTFILE=~/.history
 HISTSIZE=5000
@@ -36,6 +36,7 @@ git
 history
 sublime
 ssh-agent
+zsh-aws-vault
 zsh-autosuggestions
 zsh-syntax-highlighting
 )

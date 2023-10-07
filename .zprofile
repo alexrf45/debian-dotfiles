@@ -20,7 +20,6 @@ export AWS_VAULT_BACKEND=pass
 export AWS_PAGER=
 export AWS_CLI_AUTO_PROMPT=on-partial
 export GPG_TTY=$(tty)
-
 #rust env
 
 source "$HOME/.cargo/env"
