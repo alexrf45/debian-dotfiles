@@ -12,7 +12,7 @@ alias hist-backup='cp -r ~/.logs/* ~/dev-bckup/debian-history/'
 
 
 #rust binaries
-alias ls='exa'
+#alias ls='exa'
 alias cat='bat'
 alias speedtest='speedtest-rs'
 

@@ -1,4 +1,4 @@
-PATH="$PATH:/home/f0nzy/.local/bin:/home/f0nzy/.pulumi/bin:$HOME/.cargo/bin/:$GOROOT/bin:$GOPATH/bin"
+PATH="$PATH:$HOME/.local/bin:$HOME/.pulumi/bin:$HOME/.cargo/bin/:$GOROOT/bin:$GOPATH/bin"
 
 export EDITOR=nvim
 export TERM='xterm-256color'
@@ -11,8 +11,8 @@ export GOROOT=$HOME/.local/go
 
 
 #RUST
-export RUSTUP_HOME="/home/$USER/.rustup"
-export CARGO_HOME="/home/$USER/.cargo"
+export RUSTUP_HOME="$HOME/.rustup"
+export CARGO_HOME="$HOME/.cargo"
 
 #aws-cli ENV
 export AWS_REGION=us-east-1
