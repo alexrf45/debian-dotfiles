@@ -20,7 +20,7 @@ source "$HOME/.zprofile"
 zstyle ':omz:update' mode auto      # update automatically without asking
 
 #theme
-ZSH_THEME="agnoster-custom"
+ZSH_THEME="kali"
 
 HISTFILE=~/.history
 HISTSIZE=5000
