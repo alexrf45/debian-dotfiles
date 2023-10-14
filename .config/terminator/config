@@ -29,7 +29,6 @@
     title_font = Monospace Bold 10
   [[CTF]]
     allow_bold = False
-    background_color = "#212121"
     background_darkness = 0.97
     cursor_shape = underline
     cursor_bg_color = "#d0d0d0"
