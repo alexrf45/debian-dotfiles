@@ -54,7 +54,7 @@ alias docknt='docker network'
 alias dock-up='docker-compose up -d'
 alias dock-down='docker-compose down'
 
-alias dot='/usr/bin/git --git-dir=/home/$USER/.cfg/ --work-tree=/home/$USER'
+alias sec='/usr/bin/git --git-dir=/home/$USER/.cfg/ --work-tree=/home/$USER'
 
 
 

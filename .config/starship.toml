@@ -25,6 +25,25 @@ command = "echo 🐳"
 files = ["Dockerfile", "docker-compose.yml", "docker-compose.yaml"]
 when = """ command -v docker &> /dev/null; exit (echo $?); """
 
+[custom.git_status]
+command = '''bash -c "
+# Untracked or Deleted files - Red
+if git status --porcelain | grep -qe '^?? ' -e '^[MARCDU ]D ' -e '^D[ UM]'; then
+    echo -n $'\e[31m●'
+fi
+
+# Modified (unstaged) and Renamed files - Yellow
+if git status --porcelain | grep -qe '^[ MARC]M ' -e '^R[ MD] '; then
+    echo -n $'\e[33m●'
+fi
+
+# Staged files - Green
+if git status --porcelain | grep -qe '^A[ MDAU] ' -e '^M[ MD] ' -e '^UA'; then
+    echo -n $'\e[32m●'
+fi"'''
+when = 'git rev-parse --is-inside-work-tree >/dev/null 2>&1'
+format = '( $output)'
+
 [custom.tztime]
 command = 'date +"%a %b %d %Y %T"'
 when = "true"
@@ -71,29 +90,29 @@ truncation_length = 3
 truncate_to_repo = true # truncates directory to root folder if in github repo
 style = "bold lavender"
 
-[git_branch]
-format = " [$symbol $branch]($style) "
-symbol = "🪵 "
-style = "bold yellow"
-
-[git_status]
-conflicted = "⚔️ "
-ahead = "🏎️ 💨 ×${count}"
-behind = "🐢 ×${count}"
-diverged = "🔱 🏎️ 💨 ×${ahead_count} 🐢 ×${behind_count}"
-untracked = "🛤️  ×${count}"
-stashed = "📦 "
-modified = "📜 ×${count} "
-staged = "🗃️  ×${count} "
-renamed = "📛 ×${count}"
-deleted = "🗑️  ×${count}"
-style = "bright-white"
-format = "$all_status$ahead_behind"
-
-[git_commit]
-commit_hash_length = 8
-style = "bold white"
-
+# [git_branch]
+# format = " [$symbol $branch]($style) "
+# symbol = "🪵 "
+# style = "bold yellow"
+#
+# [git_status]
+# conflicted = "⚔️ "
+# ahead = "🏎️ 💨 ×${count}"
+# behind = "🐢 ×${count}"
+# diverged = "🔱 🏎️ 💨 ×${ahead_count} 🐢 ×${behind_count}"
+# untracked = "🛤️  ×${count}"
+# stashed = "📦 "
+# modified = "📜 ×${count} "
+# staged = "🗃️  ×${count} "
+# renamed = "📛 ×${count}"
+# deleted = "🗑️  ×${count}"
+# style = "bright-white"
+# format = "$all_status$ahead_behind"
+#
+# [git_commit]
+# commit_hash_length = 8
+# style = "bold white"
+#
 [pulumi]
 symbol = "⚙️ "
 format = " [$symbol $stack]($style)"
